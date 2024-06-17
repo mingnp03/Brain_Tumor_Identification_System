@@ -6,6 +6,11 @@ from tensorflow.keras.preprocessing import image
 import tensorflow as tf
 from tensorflow.keras.layers import DepthwiseConv2D as OriginalDepthwiseConv2D
 
+import gdown
+url = 'https://drive.google.com/file/d/1LlML6NGwEG8dtjgKoOquxJTCTQ_pYyX2/view?usp=sharing'
+output = 'efficientnetv2-s-BTI44-96.91.h5'
+gdown.download(url, output, quiet=False)
+
 class CustomDepthwiseConv2D(OriginalDepthwiseConv2D):
     def __init__(self, *args, **kwargs):
         kwargs.pop('groups', None)  # Remove the 'groups' parameter if present
